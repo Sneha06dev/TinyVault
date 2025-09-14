@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 320px;
+      padding: 15px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    #vaultSection {
+      display: none;
+    }
+    .hidden {
+      display: none;
+    }
+    input, button {
+      margin: 5px 0;
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 5px 0;
+      background: #f1f1f1;
+      padding: 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Password Vault</h2>
+
+  <!-- Unlock Section -->
+  <div id="unlockSection">
+    <p id="vaultStatus">Enter your Master Password:</p>
+    <input type="password" id="masterPasswordInput" placeholder="Master Password">
+    <button id="unlockBtn">Unlock</button>
+  </div>
+
+  <!-- Vault Section -->
+  <div id="vaultSection">
+    <h3>Add New Password</h3>
+    <input type="text" id="siteInput" placeholder="Site (e.g. gmail.com)">
+    <input type="text" id="usernameInput" placeholder="Username">
+    <div style="position: relative; width: 100%;">
+  <input type="password" id="passwordInput" placeholder="Password" 
+         style="width: 100%; padding-right: 35px;">
+  <button id="togglePasswordBtn" type="button"
+          style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+                 border: none; background: none; cursor: pointer; width: auto; padding: 0;">
+    👁️
+  </button>
+</div>
+<button id="generatePasswordBtn">Generate Password</button>
+<button id="savePasswordBtn">Save Password</button>
+    <!-- <input type="password" id="passwordInput" placeholder="Password">
+    <button id="savePasswordBtn">Save Password</button> -->
+
+    <h3>Saved Passwords</h3>
+    <ul id="passwordList"></ul>
+    <div style="margin-top: 15px; text-align: right;">
+    <button id="manualLockBtn" 
+            style="background-color: #d9534f; color: white; padding: 6px 12px;
+                   border: none; border-radius: 6px; cursor: pointer;">
+      🔒 Lock Vault
+    </button>
+<button id="autoFillBtn" 
+        style="background-color: #0275d8; color: white; padding: 6px 12px;
+               border: none; border-radius: 6px; cursor: pointer; display: block; width: 100%; margin-top: 8px;">
+  ⚡ Auto-Fill
+</button>
+
+
+  </div>
+  </div>
+
+  <script src="crypto.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
